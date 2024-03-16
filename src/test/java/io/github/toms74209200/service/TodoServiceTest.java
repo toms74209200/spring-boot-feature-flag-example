@@ -3,6 +3,7 @@ package io.github.toms74209200.service;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import io.github.toms74209200.entity.Todo;
+import io.github.toms74209200.logic.SortTodoByDeadline;
 import io.github.toms74209200.repository.TodoRepository;
 import java.util.List;
 import org.junit.jupiter.api.Test;
@@ -11,7 +12,7 @@ class TodoServiceTest {
 
     @Test
     public void testGetTodos() {
-        TodoService todoService = new TodoService(new TodoRepository());
+        TodoService todoService = new TodoService(new TodoRepository(), new SortTodoByDeadline());
 
         List<Todo> actual = todoService.getTodos();
 
